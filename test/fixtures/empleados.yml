@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  primerNombre: MyString
+  segundoNombre: MyString
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  correo: MyString
+  telefono: MyString
+  puesto: MyString
+  fechaContratacion: 2024-03-13 21:19:30
+
+two:
+  primerNombre: MyString
+  segundoNombre: MyString
+  apellidoPaterno: MyString
+  apellidoMaterno: MyString
+  correo: MyString
+  telefono: MyString
+  puesto: MyString
+  fechaContratacion: 2024-03-13 21:19:30

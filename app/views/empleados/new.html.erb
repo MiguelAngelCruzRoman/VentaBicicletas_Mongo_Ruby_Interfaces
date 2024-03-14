@@ -1,0 +1,60 @@
+<!-- app/views/empleados/new.html.erb -->
+<h1>Agregar Nuevo Empleado</h1>
+
+
+<%= form_with(model: @empleado, url: empleados_path) do |form| %>
+  <% if @empleado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@empleado.errors.count, "error") %> prohibieron que este empleado sea guardado:</h2>
+      <ul>
+      <% @empleado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :primerNombre %>
+    <%= form.text_field :primerNombre %>
+  </div>
+
+   <div class="field">
+    <%= form.label :segundoNombre %>
+    <%= form.text_field :segundoNombre %>
+  </div>
+
+   <div class="field">
+    <%= form.label :apellidoPaterno %>
+    <%= form.text_field :apellidoPaterno %>
+  </div>
+
+   <div class="field">
+    <%= form.label :apellidoMaterno %>
+    <%= form.text_field :apellidoMaterno %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correo %>
+    <%= form.email_field :correo %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :telefono %>
+    <%= form.text_field :telefono %>
+  </div>
+
+  <div class="field">
+    <%= form.label :puesto %>
+    <%= form.text_field :puesto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fechaContratacion %>
+    <%= form.datetime_field :fechaContratacion %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Agregar Empleado' %>
+  </div>
+<% end %>
