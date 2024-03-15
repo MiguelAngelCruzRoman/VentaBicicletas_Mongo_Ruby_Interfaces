@@ -1,63 +1,70 @@
-<!-- app/views/empleados/new.html.erb -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 <h1>Agregar Nuevo Empleado</h1>
 
-
-<%= form_with(model: @empleado, url: empleados_path) do |form| %>
+<%= form_with(model: @empleado, url: empleados_path, class: "row g-3") do |form| %>
   <% if @empleado.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="col-12">
       <h2><%= pluralize(@empleado.errors.count, "error") %> prohibieron que este empleado sea guardado:</h2>
       <ul>
-      <% @empleado.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @empleado.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :primerNombre %>
-    <%= form.text_field :primerNombre %>
+  <div class="col-md-6">
+    <%= form.label :"Primer Nombre", class: "form-label" %>
+    <%= form.text_field :primerNombre, class: "form-control", required: true %>
+    <div class="invalid-feedback">
+      Por favor ingrese el primer nombre del empleado.
+    </div>
   </div>
 
-   <div class="field">
-    <%= form.label :segundoNombre %>
-    <%= form.text_field :segundoNombre %>
+  <div class="col-md-6">
+    <%= form.label :"Segundo Nombre", class: "form-label" %>
+    <%= form.text_field :segundoNombre, class: "form-control" %>
   </div>
 
-   <div class="field">
-    <%= form.label :apellidoPaterno %>
-    <%= form.text_field :apellidoPaterno %>
+  <div class="col-md-6">
+    <%= form.label :"Apellido Paterno", class: "form-label" %>
+    <%= form.text_field :apellidoPaterno, class: "form-control", required: true %>
+    <div class="invalid-feedback">
+      Por favor ingrese el apellido paterno del empleado.
+    </div>
   </div>
 
-   <div class="field">
-    <%= form.label :apellidoMaterno %>
-    <%= form.text_field :apellidoMaterno %>
+  <div class="col-md-6">
+    <%= form.label :"Apellido Materno", class: "form-label" %>
+    <%= form.text_field :apellidoMaterno, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :correo %>
-    <%= form.email_field :correo %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono %>
+  <div class="col-md-6">
+    <%= form.label :Correo, class: "form-label" %>
+    <%= form.email_field :correo, class: "form-control", required: true %>
+    <div class="invalid-feedback">
+      Por favor ingrese un correo válido.
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :puesto %>
-    <%= form.text_field :puesto %>
+  <div class="col-md-6">
+    <%= form.label :"Teléfono", class: "form-label" %>
+    <%= form.text_field :telefono, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :fechaContratacion %>
-    <%= form.datetime_field :fechaContratacion %>
+  <div class="col-md-6">
+    <%= form.label :Puesto, class: "form-label" %>
+    <%= form.text_field :puesto, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit 'Agregar Empleado' %>
+  <div class="col-md-6">
+    <%= form.label :"Fecha Contratación", class: "form-label" %>
+    <%= form.datetime_field :fechaContratacion, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit 'Agregar Empleado', class: "btn btn-success" %>
   </div>
 <% end %>

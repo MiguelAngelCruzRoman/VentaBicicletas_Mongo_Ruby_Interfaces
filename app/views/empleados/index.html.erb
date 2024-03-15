@@ -44,7 +44,9 @@
           <td><%= empleado.puesto %></td>
           <td><%= empleado.fechaContratacion %></td>
           <td>
-            <%= button_to "Editar", empleado_path(empleado), method: :edit, data: { confirm: '¿Estás seguro que deseas editar este empleado?' }, class: 'btn btn-warning' %>
+            <%= link_to edit_empleado_path(empleado), class: "btn btn-warning" do %>
+              Editar
+            <% end %>            
             <%= button_to "Eliminar", empleado_path(empleado), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar este empleado?' }, class: 'btn btn-danger' %>
           </td>
         </tr>
