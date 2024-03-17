@@ -22,8 +22,39 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>CRUD de Empleados</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CRUD</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Empleados", empleados_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Tiendas", tiendas_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Bicicletas", empleados_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Ventas", empleados_path, class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<br>
+<center>
+   <h1>CRUD de Empleados</h1>
     <%= link_to "Agregar", new_empleado_path, class: "btn btn-success" %>
+</center>
+    <br><br>
+ 
   <table>
     <thead>
       <tr>
@@ -44,10 +75,12 @@
           <td><%= empleado.puesto %></td>
           <td><%= empleado.fechaContratacion %></td>
           <td>
-            <%= link_to edit_empleado_path(empleado), class: "btn btn-warning" do %>
-              Editar
-            <% end %>            
-            <%= button_to "Eliminar", empleado_path(empleado), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar este empleado?' }, class: 'btn btn-danger' %>
+            <div class="btn-group" role="group" aria-label="Acciones">
+              <%= link_to edit_empleado_path(empleado), class: "btn btn-warning" do %>
+                Editar
+              <% end %>            
+              <%= button_to "Eliminar", empleado_path(empleado), method: :delete, data: { confirm: '¿Estás seguro que deseas eliminar este empleado?' }, class: 'btn btn-danger' %>
+            </div>
           </td>
         </tr>
       <% end %>
